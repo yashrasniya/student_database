@@ -98,7 +98,7 @@ class user_detail(serializers.ModelSerializer):
   def update(self, instance, validated_data):
     read_only = ['id', 'roll_number', 'email', 'marksheet_10','marksheet_12','profile']
     image_add_db({'marksheet_10': instance.marksheet_10,
-                  'marksheet_12':instance.marksheet_12}, validated_data, instance=instance)
+                  'marksheet_12':instance.marksheet_12,'profile':instance.profile}, validated_data, instance=instance)
     # validated_data._mutable=True
     for i in read_only:
       if validated_data.get(i, ''):
