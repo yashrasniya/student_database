@@ -32,7 +32,7 @@ class User(AbstractUser):
     username = None
     roll_number = models.CharField(max_length=100, unique=True)
     gender = models.CharField(max_length=20, choices=(('Male', 'Male'), ('Female', 'Female')))
-    dob = models.DateField(default='')
+    dob = models.DateField(default='1111-11-11')
 
     USERNAME_FIELD = 'roll_number'
     objects = User_manager()
