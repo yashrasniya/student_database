@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = ['http://127.0.0.1:5500','http://localhost:5173','http://www.zymsi.com','https://zymsi.netlify.app']
 
 STATIC_ROOT='static'
+STATIC='/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

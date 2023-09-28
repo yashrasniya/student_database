@@ -23,3 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('accounts.api.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns=urlpatterns+static(settings.STATIC, document_root=settings.STATIC_ROOT)
