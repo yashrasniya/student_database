@@ -26,31 +26,31 @@ class User_manager(BaseUserManager):
 
 
 class User(AbstractUser):
-    Father_name = models.CharField(max_length=100)
-    Mother_name = models.CharField(max_length=100)
+    Father_name = models.CharField(max_length=100,blank=True)
+    Mother_name = models.CharField(max_length=100,blank=True)
 
     username = None
     roll_number = models.CharField(max_length=100, unique=True)
-    gender = models.CharField(max_length=20, choices=(('Male', 'Male'), ('Female', 'Female')))
+    gender = models.CharField(max_length=20, choices=(('Male', 'Male'), ('Female', 'Female')),blank=True)
     dob = models.DateField(null=True)
 
     USERNAME_FIELD = 'roll_number'
     objects = User_manager()
 
     # Address
-    country = models.CharField(max_length=50)
-    state = models.CharField(max_length=50)
-    city = models.CharField(max_length=50)
-    landmark = models.CharField(max_length=50)
-    address = models.CharField(max_length=300)
-    pincode = models.CharField(max_length=6)
+    country = models.CharField(max_length=50,blank=True)
+    state = models.CharField(max_length=50,blank=True)
+    city = models.CharField(max_length=50,blank=True)
+    landmark = models.CharField(max_length=50,blank=True)
+    address = models.CharField(max_length=300,blank=True)
+    pincode = models.CharField(max_length=6,blank=True)
 
-    mobile_number = models.CharField(max_length=12)
-    parent_mobile_number = models.CharField(max_length=12)
-    adhar_number = models.CharField(max_length=20)
-    marksheet_10 = models.FileField(upload_to='accounts/marksheet_10/',null=True)
-    marksheet_12 = models.FileField(upload_to='accounts/marksheet_10/',null=True)
-    profile = models.FileField(upload_to='accounts/profile/',null=True)
+    mobile_number = models.CharField(max_length=12,blank=True)
+    parent_mobile_number = models.CharField(max_length=12,blank=True)
+    adhar_number = models.CharField(max_length=20,blank=True)
+    marksheet_10 = models.FileField(upload_to='accounts/marksheet_10/',null=True,blank=True)
+    marksheet_12 = models.FileField(upload_to='accounts/marksheet_10/',null=True,blank=True)
+    profile = models.FileField(upload_to='accounts/profile/',null=True,blank=True)
     branch_choice=(
         ('Computer science and engineering', 'CSE'),
         ('Electrical engineering', 'EE'),
@@ -61,8 +61,8 @@ class User(AbstractUser):
     batch_choice=[
         (f'{i}-{i+4}',f'{i}-{i+4}') for i in range(2019,2030)
     ]
-    branch=models.CharField(choices=branch_choice,max_length=50)
-    batch=models.CharField(choices=batch_choice,max_length=50)
+    branch=models.CharField(choices=branch_choice,max_length=50,blank=True)
+    batch=models.CharField(choices=batch_choice,max_length=50,blank=True)
 
     def name(self):
         return self.first_name+' '+self.last_name
