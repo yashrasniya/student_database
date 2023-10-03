@@ -1,7 +1,9 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User
+from .models import User,Superuser
 from .utils import actions
+from django.db.models import Q
+
 # Register your models here.
 
 @admin.register(User)
@@ -88,4 +90,31 @@ class UserAdmin(actions,UserAdmin):
     ]
     list_display = ("roll_number", "name","branch","batch","Father_name")
     ordering = ("roll_number",)
+    def get_queryset(self, request):
+        return self.model.objects.filter(is_superuser=False,is_staff=False)
+
+@admin.register(Superuser)
+class admin_users(UserAdmin):
+    fieldsets = (
+        (None, {"fields": ("roll_number", "password")}),
+        (("Personal info"), {"fields": ("first_name", "last_name", "email",'gender','Mother_name','Father_name','profile','dob')}),
+        (
+            ("Permissions"),
+            {
+                "fields": (
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
+                    # "is_partner",
+                    "user_permissions",
+                    "groups",
+                ),
+            },
+        ),
+        # (("Important dates"), {"fields": ("last_login", "date_joined")}),
+    )
+    list_display=("roll_number", "name","is_superuser","is_staff",'email')
+    def get_queryset(self, request):
+        return self.model.objects.filter(Q(is_superuser=True)| Q(is_staff=True))
+
 

@@ -5,10 +5,24 @@ from django.shortcuts import redirect
 from adminconfig.models import Xl_download_config
 import datetime
 from django.contrib.contenttypes.models import ContentType
+from io import BytesIO
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
 def Download(modeladmin, request, queryset):
+
     return Model_download(queryset)
+
+def pdf(modeladmin, request, queryset):
+    template = get_template('pdf.html')
+    html = template.render({'obj':queryset})
+    result = BytesIO()
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return None
 class actions():
-    actions = [Download]
+    actions = [Download,pdf]
 
 def Model_download(queryset):
     model=ContentType.objects.get_for_model(queryset.first()).model

@@ -32,7 +32,7 @@ class User(AbstractUser):
     username = None
     roll_number = models.CharField(max_length=100, unique=True)
     gender = models.CharField(max_length=20, choices=(('Male', 'Male'), ('Female', 'Female')),blank=True)
-    dob = models.DateField(null=True)
+    dob = models.DateField(null=True,blank=True)
 
     USERNAME_FIELD = 'roll_number'
     objects = User_manager()
@@ -66,3 +66,9 @@ class User(AbstractUser):
 
     def name(self):
         return self.first_name+' '+self.last_name
+
+class Superuser(User):
+    class Meta:
+        verbose_name = 'Superuser'
+        verbose_name_plural = 'Superusers'
+        proxy = True

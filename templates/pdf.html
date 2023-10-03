@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    @page title_template { margin: 5cm; }
+    @page regular_template { margin: 2cm; }
+    .card{
+        padding: 4px;
+        width: 100%;
+        display: flex;
+        border: #383838 1px solid;
+        margin: 3px;
+    }
+    .card img{
+        width: 80px;
+
+    }
+    .text{
+        text-align: left;
+
+    }
+    .text h1{
+        font-size: 14px;
+    }
+    .text h2{
+        font-size: 12px;
+    }
+</style>
+</head>
+<body>
+{% for i in obj %}
+<table style="border: #313131 1px solid; padding: 3px">
+
+<tbody>
+<tr><td style="font-weight: 500; width: 20%">profile</td><td style="width: 80%">{% if i.profile %}<img  src="media/{{ i.profile }}">{% endif %}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Name</td><td style="width: 80%">Name</td></tr>
+<tr><td style="font-weight: 500; width: 20%">branch</td><td style="width: 80%">{{ i.batch }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">batch</td><td style="width: 80%">{{ i.batch }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Roll Number</td><td style="width: 80%">{{ i.roll_number }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">gender</td><td style="width: 80%">{{ i.gender }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">dob</td><td style="width: 80%">{{ i.dob }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Father name</td><td style="width: 80%">{{ i.Father_name }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Mother name</td><td style="width: 80%">{{ i.Mother_name }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">mobile number</td><td style="width: 80%">{{ i.mobile_number }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">parent mobile number</td><td style="width: 80%">{{ i.parent_mobile_number }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">adhar Number</td><td style="width: 80%">{{ i.adhar_number }}</td></tr>
+</tbody>
+</table>
+<br/>
+{% endfor %}
+</table>
+</body>
+</html>
