@@ -34,22 +34,24 @@
 <table style="border: #313131 1px solid; padding: 3px">
 
 <tbody>
-<tr><td style="font-weight: 500; width: 20%">profile</td><td style="height: 100px">{% if i.profile %}<img   src="media/{{ i.profile }}">{% endif %}</td></tr>
-<tr><td style="font-weight: 500; width: 20%">Name</td><td style="width: 80%">Name</td></tr>
-<tr><td style="font-weight: 500; width: 20%">branch</td><td style="width: 80%">{{ i.batch }}</td></tr>
-<tr><td style="font-weight: 500; width: 20%">batch</td><td style="width: 80%">{{ i.batch }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Name</td><td style="width: 80%; font-size: 14px; font-weight: 500">{{ i.name }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Profile</td><td style="height: 100px">{% if i.profile %}<img   src="media/{{ i.profile }}">{% endif %}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Branch</td><td style="width: 80%">{{ i.branch }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Batch</td><td style="width: 80%">{{ i.batch }}</td></tr>
 <tr><td style="font-weight: 500; width: 20%">Roll Number</td><td style="width: 80%">{{ i.roll_number }}</td></tr>
-<tr><td style="font-weight: 500; width: 20%">gender</td><td style="width: 80%">{{ i.gender }}</td></tr>
-<tr><td style="font-weight: 500; width: 20%">dob</td><td style="width: 80%">{{ i.dob }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Gender</td><td style="width: 80%">{{ i.gender }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">DOB</td><td style="width: 80%">{{ i.dob }}</td></tr>
 <tr><td style="font-weight: 500; width: 20%">Father name</td><td style="width: 80%">{{ i.Father_name }}</td></tr>
 <tr><td style="font-weight: 500; width: 20%">Mother name</td><td style="width: 80%">{{ i.Mother_name }}</td></tr>
-<tr><td style="font-weight: 500; width: 20%">mobile number</td><td style="width: 80%">{{ i.mobile_number }}</td></tr>
-<tr><td style="font-weight: 500; width: 20%">parent mobile number</td><td style="width: 80%">{{ i.parent_mobile_number }}</td></tr>
-<tr><td style="font-weight: 500; width: 20%">adhar Number</td><td style="width: 80%">{{ i.adhar_number }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Mobile number</td><td style="width: 80%">{{ i.mobile_number }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Parent mobile number</td><td style="width: 80%">{{ i.parent_mobile_number }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Adhar Number</td><td style="width: 80%">{{ i.adhar_number }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Address</td><td style="width: 80%">{{ i.full_address }}</td></tr>
+<tr><td style="font-weight: 500; width: 20%">Marksheet</td><td style="height: 100px"><img   src="media/{{ i.marksheet_10 }}"> <samp>  </samp><img   src="media/{{ i.marksheet_12 }}"></td></tr>
+
 </tbody>
 </table>
-<br/>
-{% endfor %}
+<div style="page-break-after: always; break-after: page;"></div>{% endfor %}
 </table>
 </body>
 </html>

@@ -66,6 +66,8 @@ class User(AbstractUser):
 
     def name(self):
         return self.first_name+' '+self.last_name
+    def full_address(self):
+        return f"{self.address} {self.landmark} {self.city} {self.state} {self.country} {self.pincode}"
 
 class Superuser(User):
     class Meta:
