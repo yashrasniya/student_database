@@ -21,8 +21,17 @@ def pdf(modeladmin, request, queryset):
     if not pdf.err:
         return HttpResponse(result.getvalue(), content_type='application/pdf')
     return None
+
+def pdf_less_data(modeladmin, request, queryset):
+    template = get_template('less_detail.html')
+    html = template.render({'obj':queryset})
+    result = BytesIO()
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return None
 class actions():
-    actions = [Download,pdf]
+    actions = [Download,pdf,pdf_less_data]
 
 def Model_download(queryset):
     model=ContentType.objects.get_for_model(queryset.first()).model
