@@ -116,6 +116,7 @@ class user_detail_for_cr(user_detail):
       'name',
       'gender',
       'Father_name',
+      'Mother_name',
       'branch',
       'batch',
       'status',
