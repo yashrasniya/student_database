@@ -113,6 +113,16 @@ class admin_users(UserAdmin):
                 ),
             },
         ),
+        (
+            ("collage"),
+            {
+                'fields': (
+                    'branch',
+                    'batch',
+                ),
+            },
+
+        ),
         # (("Important dates"), {"fields": ("last_login", "date_joined")}),
     )
     list_display=("roll_number", "name","is_superuser","is_staff",'email')
