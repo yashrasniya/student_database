@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User,Superuser
+from .models import User,Superuser,CR
 from .utils import actions
 from django.db.models import Q
 
@@ -18,6 +18,7 @@ class UserAdmin(actions,UserAdmin):
                     "is_active",
                     "is_staff",
                     "is_superuser",
+                    "is_cr",
                     # "user_permissions",
                 ),
             })
@@ -105,6 +106,7 @@ class admin_users(UserAdmin):
                     "is_active",
                     "is_staff",
                     "is_superuser",
+                    "is_cr",
                     # "is_partner",
                     "user_permissions",
                     "groups",
@@ -116,5 +118,12 @@ class admin_users(UserAdmin):
     list_display=("roll_number", "name","is_superuser","is_staff",'email')
     def get_queryset(self, request):
         return self.model.objects.filter(Q(is_superuser=True)| Q(is_staff=True))
+
+
+@admin.register(CR)
+class admin_users(UserAdmin):
+
+    def get_queryset(self, request):
+        return self.model.objects.filter(is_cr=True)
 
 

@@ -64,6 +64,8 @@ class User(AbstractUser):
     branch=models.CharField(choices=branch_choice,max_length=50,blank=True)
     batch=models.CharField(choices=batch_choice,max_length=50,blank=True)
 
+    is_cr=models.BooleanField(default=False)
+
     def name(self):
         return self.first_name+' '+self.last_name
     def full_address(self):
@@ -73,4 +75,9 @@ class Superuser(User):
     class Meta:
         verbose_name = 'Superuser'
         verbose_name_plural = 'Superusers'
+        proxy = True
+class CR(User):
+    class Meta:
+        verbose_name = 'CR'
+        verbose_name_plural = 'CRs'
         proxy = True

@@ -59,7 +59,7 @@ class user_detail(serializers.ModelSerializer):
   first_name=serializers.CharField(read_only=True)
   last_name=serializers.CharField(read_only=True)
   status=serializers.IntegerField(default=200)
-  token=serializers.SerializerMethodField()
+  token = serializers.SerializerMethodField()
 
   class Meta:
     model = User
@@ -88,6 +88,7 @@ class user_detail(serializers.ModelSerializer):
       'batch',
       'status',
       'dob',
+      'is_cr',
       'token',
 
     )
@@ -105,3 +106,22 @@ class user_detail(serializers.ModelSerializer):
         validated_data.pop(i)
     print(type(validated_data))
     super().update(instance, validated_data)
+
+class user_detail_for_cr(user_detail):
+  status = serializers.IntegerField(default=200)
+  class Meta:
+    model = User
+    fields = (
+      'roll_number',
+      'name',
+      'gender',
+      'Father_name',
+      'branch',
+      'batch',
+      'status',
+      'is_cr',
+
+    )
+
+
+

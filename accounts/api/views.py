@@ -2,12 +2,13 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from ..models import User
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 
 from django.contrib.auth import authenticate
 
-from ..serializers import RegisterSerializer,user_detail
+from ..serializers import RegisterSerializer,user_detail,user_detail_for_cr
 
 class Register_user(generics.CreateAPIView):
     permission_classes = [AllowAny]
@@ -38,3 +39,11 @@ class Profile(APIView):
 
     def get(self,request):
         return Response(user_detail(request.user,context={'request':request}).data)
+
+class MyClassmate(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self,request):
+        if request.user.is_cr:
+            return Response(user_detail_for_cr(User.objects.filter(branch=request.user.branch,batch=request.user.batch), context={'request': request},many=True).data)
+        return Response({'error': 'you are not a CR!', 'status': 400}, status=400)
