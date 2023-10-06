@@ -65,6 +65,8 @@ class User(AbstractUser):
     batch=models.CharField(choices=batch_choice,max_length=50,blank=True)
 
     is_cr=models.BooleanField(default=False)
+    def __str__(self):
+        return self.name()
 
     def name(self):
         return self.first_name+' '+self.last_name

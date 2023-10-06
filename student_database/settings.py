@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     # user created
     'accounts',
     'adminconfig',
+    'feedback',
+    'old_paper',
 ]
 
 MIDDLEWARE = [
