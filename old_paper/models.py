@@ -30,3 +30,4 @@ class OldPaper(models.Model):
         (f'{i}',f'{i}') for i in range(2010, 2030)
     ]
     year = models.CharField(choices=year_choice, max_length=50, blank=True)
+

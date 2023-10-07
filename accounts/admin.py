@@ -92,7 +92,7 @@ class UserAdmin(actions,UserAdmin):
     list_display = ("roll_number", "name","branch","batch","Father_name")
     ordering = ("roll_number",)
     def get_queryset(self, request):
-        return self.model.objects.filter(is_superuser=False,is_staff=False)
+        return self.model.objects.filter(is_superuser=False)
 
 @admin.register(Superuser)
 class admin_users(UserAdmin):
