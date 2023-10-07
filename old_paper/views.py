@@ -14,8 +14,8 @@ class Subject_view(APIView):
     def get(self, request):
         branch = request.GET.get('branch', '')
         year = request.GET.get('year', '')
-        if not (branch and year):
-            return Response({'error': 'branch or year not provided'}, )
+        if not (year):
+            return Response({'error': 'year not provided'}, status=400)
         obj = Subject.objects.filter(branch=branch, year=year)
         print(Subject.objects.all().values())
         return Response(Subject_serializer(obj, many=True, context={'request': request}).data)
