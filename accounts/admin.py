@@ -89,7 +89,7 @@ class UserAdmin(actions,UserAdmin):
         'parent_mobile_number',
         'adhar_number',
     ]
-    list_display = ("roll_number", "name","branch","batch","Father_name")
+    list_display = ("roll_number", "name","branch","batch","Father_name",'date_joined')
     ordering = ("roll_number",)
     def get_queryset(self, request):
         return self.model.objects.filter(is_superuser=False)
