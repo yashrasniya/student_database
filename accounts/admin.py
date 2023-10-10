@@ -73,7 +73,7 @@ class UserAdmin(actions,UserAdmin):
             },
         ),
     )
-    list_filter=['branch','batch','is_staff','gender',]
+    list_filter=['branch','batch','is_staff','gender','date_joined']
     search_fields = [
         'roll_number',
         'Father_name',
