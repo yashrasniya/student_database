@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'adminconfig',
     'feedback',
     'old_paper',
+    
+    
 ]
 
 MIDDLEWARE = [

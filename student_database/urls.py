@@ -24,6 +24,7 @@ urlpatterns = [
     path('api/', include('accounts.api.urls')),
     path('api/', include('feedback.urls')),
     path('api/', include('old_paper.urls')),
+    path('api/', include('home.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns=urlpatterns+static(settings.STATIC, document_root=settings.STATIC_ROOT)
