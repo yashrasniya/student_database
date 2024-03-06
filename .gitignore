@@ -1,4 +1,5 @@
-/accounts/migrations/
+*/migrations/*
 /accounts/marksheet_10/
 /db.sqlite3
 /env/
+/home/migrations/
