@@ -10,7 +10,8 @@ from student_database.utilitys import image_add_db
 
 
 # serializers.py
-from .models import Mission, Vision, ActivityImage, Announcement, Course, FooterLink
+from .models import Mission, Vision, ActivityImage, Announcement, Course, FooterLink, MenuItem, News, Event, Contact, \
+TopHeaderLink
 
 class MissionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -42,3 +43,29 @@ class FooterLinkSerializer(serializers.ModelSerializer):
     class Meta:
         model = FooterLink
         fields = '__all__'
+
+class MenuItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MenuItem
+        fields = '__all__'
+
+class NewsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = News
+        fields = '__all__'
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = '__all__'
+
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = '__all__'
+
+class TopHeaderLinkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TopHeaderLink
+        fields = '__all__'
+        

@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Mission(models.Model):
     content = models.TextField()
 
@@ -21,13 +20,8 @@ class Announcement(models.Model):
 
     def __str__(self):
         return self.text
+    
 
-
-# class CarouselImage(models.Model):
-#     image = models.ImageField(upload_to='carousel_images/')
-
-#     def __str__(self):
-#         return f"Carousel Image {self.pk}"
 
 class Course(models.Model):
     title = models.CharField(max_length=200)
@@ -44,3 +38,31 @@ class FooterLink(models.Model):
 
     def __str__(self):
         return self.title
+
+class MenuItem(models.Model):
+    name = models.CharField(max_length=255)
+    link = models.CharField(max_length=255, blank=True, null=True)
+    parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+class News(models.Model):
+    img = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
+    dis = models.TextField()
+
+class Event(models.Model):
+    text = models.CharField(max_length=255)
+
+class Contact(models.Model):
+    email = models.EmailField()
+    address = models.TextField()
+    aicte_feedback_link = models.URLField()
+    helpline_number = models.CharField(max_length=15)
+    
+class TopHeaderLink(models.Model):
+    title = models.CharField(max_length=255)
+    icon = models.CharField(max_length=255)
+    link_text = models.CharField(max_length=255)
+    link_url = models.CharField(max_length=255)
