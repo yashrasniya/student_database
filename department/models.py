@@ -11,6 +11,7 @@ class Deparment(models.Model):
         ('Mechanical engineering', 'ME'),
     )
     department_branch= models.CharField(choices=branch_choice, max_length=50, blank=True)
+    department_subjects= models.CharField(max_length=50, default='')
     department_labs= models.CharField(max_length=50)
     department_syllabus= models.FileField(upload_to='pdfs/', default='')
     department_images= models.ImageField(upload_to= 'department_image', default= '')
@@ -30,5 +31,5 @@ class Faculty(models.Model):
     deparment_faculty= models.CharField(max_length=50, default= '')
     deparment_faculty_role= models.CharField(max_length=50, default= '')
     deparment_faculty_subject= models.CharField(max_length=50, default='')
-    deparment_faculty_number= models.CharField(max_length=50, unique= True)
+    deparment_faculty_number= models.CharField(max_length=10, unique=True)
     deparment_faculty_image= models.ImageField(upload_to='Profile', default='')
