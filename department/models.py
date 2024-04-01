@@ -11,8 +11,15 @@ class Deparment(models.Model):
         ('Mechanical engineering', 'ME'),
     )
     department_branch= models.CharField(choices=branch_choice, max_length=50, blank=True)
-    department_subjects= models.CharField(max_length=50, default='')
-    department_labs= models.CharField(max_length=50)
+    department_subjects_name= models.CharField(max_length=50, default='')
+    department_subjects_desc= models.CharField(max_length=50, default='')
+    department_labs_name= models.CharField(max_length=50, default='')
+    department_labs_desc= models.CharField(max_length=50, default='')
+    department_imgages= models.ImageField(upload_to='department_images', height_field=None, width_field=None, max_length=None)
+    department_vision= models.CharField(max_length=50)
+    department_objectives= models.CharField(max_length=50, default='')
+    department_description= models.CharField(max_length=50)
+    department_mission= models.CharField(max_length=50)
     department_syllabus= models.FileField(upload_to='pdfs/', default='')
     department_images= models.ImageField(upload_to= 'department_image', default= '')
 
@@ -24,7 +31,7 @@ class Deparment(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("_detail", kwargs={"pk": self.pk})    
+        return reverse("_detail", kwargs={"pk": self.pk})  
 
 class Faculty(models.Model):
     department_name= models.CharField(max_length=50, default= '')
