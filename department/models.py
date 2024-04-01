@@ -15,7 +15,7 @@ class Deparment(models.Model):
     department_subjects_desc= models.CharField(max_length=50, default='')
     department_labs_name= models.CharField(max_length=50, default='')
     department_labs_desc= models.CharField(max_length=50, default='')
-    department_imgages= models.ImageField(upload_to='department_images', height_field=None, width_field=None, max_length=None)
+    department_imgages= models.ImageField(upload_to='department_images', default= '')
     department_vision= models.CharField(max_length=50)
     department_objectives= models.CharField(max_length=50, default='')
     department_description= models.CharField(max_length=50)
