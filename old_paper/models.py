@@ -17,7 +17,8 @@ class Subject(models.Model):
     ]
     branch = models.CharField(choices=branch_choice, max_length=50, blank=True)
     year = models.CharField(choices=year_choice, max_length=50, blank=True)
-
+    desc= models.CharField(max_length= 500, default= '')
+    
     def __str__(self):
         return self.subject_name
 

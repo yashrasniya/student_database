@@ -1,19 +1,16 @@
 from django.db import models
 from accounts.models import User
+from old_paper.models import Subject
 # Create your models here.
 
 class Image(models.Model):
     img= models.ImageField(upload_to='department_images', default= '')
 
-class Subject(models.Model):
-    name= models.CharField(max_length= 50, default= '')
-    desc= models.CharField(max_length= 500, default= '')
-
 class Labs(models.Model):
     name= models.CharField(max_length=50, default= '')
     desc= models.CharField(max_length= 5000, default='')
 
-class Deparment(models.Model):
+class Department(models.Model):
     branch_choice = (
         ('Computer science and engineering', 'CSE'),
         ('Electrical engineering', 'EE'),
