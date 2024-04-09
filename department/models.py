@@ -46,5 +46,8 @@ class NavBar(models.Model):
     child= models.ForeignKey('self', on_delete=models.CASCADE, related_name= 'children')
 
 class Working_communities(models.Model):
-    name= models.CharField(max_length=50)
-    Faculty= models.ForeignKey( User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    Faculty = models.ForeignKey(User, on_delete=models.CASCADE, related_name='working_communities')  
+
+    def __str__(self):
+        return self.name

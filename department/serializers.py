@@ -21,11 +21,6 @@ class DepartmentSerializer(serializers.ModelSerializer):
         model = Department
         fields = '_all_'
 
-class FacultySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Faculty
-        fields = '_all_'
-
 class NavBarSerializer(serializers.ModelSerializer):
     class Meta:
         model = NavBar

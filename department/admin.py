@@ -1,6 +1,6 @@
 # admin.py
 from django.contrib import admin
-from .models import *
+from .models import Subject, Labs, Image, Working_communities, Department, NavBar
 from old_paper.models import Subject
 
 class SubjectInline(admin.TabularInline):
@@ -17,13 +17,14 @@ class ImageInline(admin.TabularInline):
 
 class WorkingCommunitiesInline(admin.TabularInline):
     model = Working_communities
-    extra = 1
+    extra= 1
 
 class DepartmentAdmin(admin.ModelAdmin):
     inlines = [
         SubjectInline,
         LabsInline,
         ImageInline,
+        LabsInline,
     ]
 
 class Working_communitiesAdmin(admin.ModelAdmin):
@@ -35,4 +36,4 @@ admin.site.register(Department, DepartmentAdmin)
 admin.site.register(Image)
 admin.site.register(Labs)
 admin.site.register(NavBar)
-admin.site.register(Working_communities, Working_communitiesAdmin)
+admin.site.register(Working_communities)
