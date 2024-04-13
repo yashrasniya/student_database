@@ -19,12 +19,12 @@ class LabsSerializer(serializers.ModelSerializer):
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
-        fields = '_all_'
+        fields = '__all__'
 
 class NavBarSerializer(serializers.ModelSerializer):
     class Meta:
         model = NavBar
-        fields = '_all_'
+        fields = '__all__'
 
 class WorkingCommunitiesSerializer(serializers.ModelSerializer):
     class Meta:
