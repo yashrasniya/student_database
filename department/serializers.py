@@ -29,4 +29,4 @@ class NavBarSerializer(serializers.ModelSerializer):
 class WorkingCommunitiesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Working_communities
-        fields = '_all_'
+        fields = '__all__'
