@@ -1,11 +1,8 @@
 # admin.py
 from django.contrib import admin
-from .models import Subject, Labs, Image, Working_communities, Department, NavBar
-from old_paper.models import Subject
+from .models import Labs, Image, Working_communities, Department, NavBar
 
-class SubjectInline(admin.TabularInline):
-    model = Department.department_subjects_name.through
-    extra = 1
+
 
 class LabsInline(admin.TabularInline):
     model = Department.department_labs_name.through
@@ -21,10 +18,8 @@ class WorkingCommunitiesInline(admin.TabularInline):
 
 class DepartmentAdmin(admin.ModelAdmin):
     inlines = [
-        SubjectInline,
         LabsInline,
         ImageInline,
-        LabsInline,
     ]
 
 class Working_communitiesAdmin(admin.ModelAdmin):
@@ -32,7 +27,7 @@ class Working_communitiesAdmin(admin.ModelAdmin):
         WorkingCommunitiesInline,
     ]
 
-admin.site.register(Department, DepartmentAdmin)
+admin.site.register(Department)
 admin.site.register(Image)
 admin.site.register(Labs)
 admin.site.register(NavBar)
