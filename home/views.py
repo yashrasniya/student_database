@@ -9,53 +9,30 @@ from .serializers import MissionSerializer, VisionSerializer, ActivityImageSeria
 
 # Define your views
 
-class MissionAPIView(generics.ListCreateAPIView):
+class MissionAPIView(generics.ListAPIView):
     queryset = Mission.objects.all()
     serializer_class = MissionSerializer
 
-    def post(self, request, *args, **kwargs):
-        # Implemented the logic for handling POST requests here
-        pass
-
-class VisionAPIView(generics.ListCreateAPIView):
+class VisionAPIView(generics.ListAPIView):
     queryset = Vision.objects.all()
     serializer_class = VisionSerializer
 
-    def post(self, request, *args, **kwargs):
-        # Implemented the logic for handling POST requests here
-        pass
-
-class ActivityImageAPIView(generics.ListCreateAPIView):
+class ActivityImageAPIView(generics.ListAPIView):
     queryset = ActivityImage.objects.all()
     serializer_class = ActivityImageSerializer
 
-    def post(self, request, *args, **kwargs):
-        # Implemented the logic for handling POST requests here
-        pass
 
 class AnnouncementViewSet(viewsets.ModelViewSet):
     queryset = Announcement.objects.all()
     serializer_class = AnnouncementSerializer
 
-    def post(self, request, *args, **kwargs):
-        # Implemented the logic for handling POST requests here
-        pass
-
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
 
-    def post(self, request, *args, **kwargs):
-        # Implemented the logic for handling POST requests here
-        pass
-
 class FooterLinkViewSet(viewsets.ModelViewSet):
     queryset = FooterLink.objects.all()
     serializer_class = FooterLinkSerializer
-
-    def post(self, request, *args, **kwargs):
-        # Implemented the logic for handling POST requests here
-        pass
 
 class MenuAPIView(APIView):
     def get(self, request, format=None):
@@ -63,19 +40,11 @@ class MenuAPIView(APIView):
         serializer = MenuItemSerializer(menu_items, many=True)
         return Response(serializer.data)
 
-    def post(self, request, *args, **kwargs):
-        # Implemented the logic for handling POST requests here
-        pass
-
 class NewsAPIView(APIView):
     def get(self, request, *args, **kwargs):
         news_data = News.objects.all()
         serializer = NewsSerializer(news_data, many=True)
         return Response(serializer.data)
-
-    def post(self, request, *args, **kwargs):
-        # Implemented the logic for handling POST requests here
-        pass
 
 class EventAPIView(APIView):
     def get(self, request, *args, **kwargs):
@@ -83,24 +52,13 @@ class EventAPIView(APIView):
         serializer = EventSerializer(event_data, many=True)
         return Response(serializer.data)
 
-    def post(self, request, *args, **kwargs):
-        # Implemented the logic for handling POST requests here
-        pass
-
-class ContactAPIView(generics.ListCreateAPIView):
+class ContactAPIView(generics.ListAPIView):
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
 
-    def post(self, request, *args, **kwargs):
-        # Implemented the logic for handling POST requests here
-        pass
-
-class TopHeaderLinkList(generics.ListCreateAPIView):
+class TopHeaderLinkList(generics.ListAPIView):
     queryset = TopHeaderLink.objects.all()
     serializer_class = TopHeaderLinkSerializer
 
-    def post(self, request, *args, **kwargs):
-        # Implemented the logic for handling POST requests here
-        pass
 
     
