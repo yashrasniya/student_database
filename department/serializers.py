@@ -6,11 +6,11 @@ class ImageSerializer(serializers.ModelSerializer):
         model = Image
         fields = '__all__'
 
-class SubjectSerializer(serializers.ModelSerializer):
+'''class SubjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subject
         fields = '__all__'
-
+'''
 class LabsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Labs
