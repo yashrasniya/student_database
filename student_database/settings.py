@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'feedback',
     'old_paper',
     'home',
-    'department'
+    'department',
+    'library',
     
 ]
 
