@@ -8,11 +8,15 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from student_database.utilitys import image_add_db
 
 
-
 # serializers.py
 from .models import Mission, Vision, ActivityImage, Announcement, Course, FooterLink, MenuItem, News, Event, Contact, \
-TopHeaderLink
+TopHeaderLink,SliderImage
 
+class SliderImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SliderImage
+        fields = '__all__'
+        
 class MissionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mission
@@ -27,7 +31,6 @@ class ActivityImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ActivityImage
         fields = '__all__'
-
 
 class AnnouncementSerializer(serializers.ModelSerializer):
     class Meta:

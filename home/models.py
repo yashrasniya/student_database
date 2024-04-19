@@ -3,17 +3,14 @@ from django.db import models
 class Mission(models.Model):
     content = models.TextField()
 
-
 class Vision(models.Model):
     content = models.TextField()
-
 
 class ActivityImage(models.Model):
     image = models.ImageField(upload_to='activity_images/')
 
     def __str__(self):
         return f"Activity Image {self.pk}"
-
 
 class Announcement(models.Model):
     text = models.TextField()
@@ -22,7 +19,6 @@ class Announcement(models.Model):
         return self.text
     
 
-
 class Course(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='course_images/')
@@ -30,7 +26,6 @@ class Course(models.Model):
 
     def __str__(self):
         return self.title
-
 
 class FooterLink(models.Model):
     title = models.CharField(max_length=200)
@@ -48,9 +43,9 @@ class MenuItem(models.Model):
         return self.name
 
 class News(models.Model):
-    img = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='news_images/', default='default_image.jpg')
     title = models.CharField(max_length=255)
-    dis = models.TextField()
+    # dis = models.TextField()
 
 class Event(models.Model):
     text = models.CharField(max_length=255)
@@ -66,3 +61,10 @@ class TopHeaderLink(models.Model):
     icon = models.CharField(max_length=255)
     link_text = models.CharField(max_length=255)
     link_url = models.CharField(max_length=255)
+
+
+class SliderImage(models.Model):
+    image_url = models.URLField()
+
+    def __str__(self):
+        return self.image_url
