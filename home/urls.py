@@ -1,7 +1,7 @@
 # urls.py
 from django.urls import path
 from .views import MissionAPIView, VisionAPIView, ActivityImageAPIView, AnnouncementViewSet, CourseViewSet, \
-    FooterLinkViewSet, MenuAPIView, NewsAPIView, EventAPIView, ContactAPIView, TopHeaderLinkList
+    FooterLinkViewSet, MenuAPIView, NewsAPIView, EventAPIView, ContactAPIView, TopHeaderLinkList,SliderImageViewSet
 
 app_name = 'home'
 
@@ -20,4 +20,6 @@ urlpatterns = [
     path('events/', EventAPIView.as_view(), name='events-api'),
     path('contact/', ContactAPIView.as_view(), name='contact-api'),
     path('topheader/', TopHeaderLinkList.as_view(), name='topheader-list'),
+    path('slider-images/', SliderImageViewSet.as_view({'get': 'list'}), name='slider-images-list'),
 ]
+
