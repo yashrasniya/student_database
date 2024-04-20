@@ -48,9 +48,17 @@ class FooterLinkSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class MenuItemSerializer(serializers.ModelSerializer):
+    parent=serializers.SerializerMethodField()
     class Meta:
         model = MenuItem
         fields = '__all__'
+
+    def get_parent(self,obj):
+
+
+        return MenuItemSerializer(MenuItem.objects.filter(parent=obj),many=True).data
+
+
 
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:

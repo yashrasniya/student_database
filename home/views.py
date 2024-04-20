@@ -35,8 +35,9 @@ class FooterLinkViewSet(viewsets.ModelViewSet):
     serializer_class = FooterLinkSerializer
 
 class MenuAPIView(APIView):
+
     def get(self, request, format=None):
-        menu_items = MenuItem.objects.all()
+        menu_items = MenuItem.objects.filter(parent=None)
         serializer = MenuItemSerializer(menu_items, many=True)
         return Response(serializer.data)
 
