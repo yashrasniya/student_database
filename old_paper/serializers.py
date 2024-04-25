@@ -9,19 +9,24 @@ from student_database.utilitys import image_add_db
 
 from .models import Subject, OldPaper
 
+from rest_framework import serializers
+from .models import Subject
+
+
 class Subject_serializer(serializers.ModelSerializer):
-  status = serializers.IntegerField(default=200)
-  class Meta:
-    model = Subject
-    fields = (
-      'id',
-      'subject_name',
-      'branch',
-      'year',
-      'status',
-
-    )
-
+    status = serializers.IntegerField(default=200)
+    
+    class Meta:
+        model = Subject
+        fields = (
+            'id',
+            'subject_name',
+            'subject_code',
+            'branch',
+            'year',
+            'subject_type',  
+            'status',
+        )
 class OldPaper_serializer(serializers.ModelSerializer):
   status = serializers.IntegerField(default=200)
   class Meta:
