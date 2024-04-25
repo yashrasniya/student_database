@@ -13,7 +13,7 @@ class ImageInline(admin.TabularInline):
 
 class WorkingCommunitiesInline(admin.TabularInline):
     model = Working_communities
-    extra= 1
+    extra= 0
 
 class DepartmentAdmin(admin.ModelAdmin):
     inlines = [
