@@ -5,11 +5,11 @@ from .models import Labs, Image, Working_communities, Department, NavBar
 
 class LabsInline(admin.TabularInline):
     model = Department.department_labs_name.through
-    extra = 1
+    extra = 0
 
 class ImageInline(admin.TabularInline):
     model = Department.department_images.through
-    extra = 1
+    extra = 0
 
 class WorkingCommunitiesInline(admin.TabularInline):
     model = Working_communities

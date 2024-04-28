@@ -59,7 +59,8 @@ INSTALLED_APPS = [
     'old_paper',
     'home',
     'department',
-    'infrastructure'
+    'infrastructure',
+    'event',
 ]
 
 MIDDLEWARE = [
