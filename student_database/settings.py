@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'home',
     'department',
     'library',
+    'placement',
     
 ]
 
@@ -177,7 +178,7 @@ REST_FRAMEWORK = {
 
     'DEFAULT_THROTTLE_RATES': {
 
-        'anon': '5/min',
+        'anon': '200/min',
 
         'user': '20/min'
 
