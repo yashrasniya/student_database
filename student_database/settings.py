@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'home',
     'department',
     'library',
+    'placement',
     
 ]
 
