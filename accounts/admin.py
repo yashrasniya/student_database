@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User,Superuser,CR
+from .models import User,Superuser,CR,Faculty
 from .utils import actions
 from django.db.models import Q
 
@@ -135,5 +135,11 @@ class admin_users(UserAdmin):
 
     def get_queryset(self, request):
         return self.model.objects.filter(is_cr=True)
+
+@admin.register(Faculty)
+class admin_users(UserAdmin):
+
+    def get_queryset(self, request):
+        return self.model.objects.filter(is_faculty=True)
 
 

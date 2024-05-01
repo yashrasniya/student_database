@@ -65,6 +65,7 @@ class User(AbstractUser):
     batch=models.CharField(choices=batch_choice,max_length=50,blank=True)
 
     is_cr=models.BooleanField(default=False)
+    is_faculty=models.BooleanField(default=False)
     def __str__(self):
         return self.name()
 
@@ -83,3 +84,11 @@ class CR(User):
         verbose_name = 'CR'
         verbose_name_plural = 'CRs'
         proxy = True
+
+class Faculty(User):
+    Designation=models.CharField(max_length=400,blank=True)
+    qualification=models.CharField(max_length=400,blank=True)
+    class Meta:
+        verbose_name = 'Faculty'
+        verbose_name_plural = 'Faculty\'s'
+
