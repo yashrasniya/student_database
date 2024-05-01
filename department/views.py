@@ -1,15 +1,13 @@
 # views.py
 from rest_framework import generics
 from .models import *
-from .serializers import ImageSerializer,LabsSerializer, DepartmentSerializer, NavBarSerializer, WorkingCommunitiesSerializer
+from .serializers import ImageSerializer, DepartmentSerializer, NavBarSerializer, WorkingCommunitiesSerializer
 
 class ImageViewSet(generics.ListAPIView):
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
     
-class LabsViewSet(generics.ListAPIView):
-    queryset = Labs.objects.all()
-    serializer_class = LabsSerializer
+
     
 class DepartmentViewSet(generics.ListAPIView):
     queryset = Department.objects.all()
@@ -22,3 +20,5 @@ class NavBarViewSet(generics.ListAPIView):
 class WorkingCommunitiesViewSet(generics.ListAPIView):
     queryset = Working_communities.objects.all()
     serializer_class = WorkingCommunitiesSerializer
+
+
